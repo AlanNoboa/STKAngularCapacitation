@@ -1,0 +1,25 @@
+<div class="jumbotron text-center">  
+  <h1>Contacto</h1>
+  <p>{{message}}</p>
+</div>
+
+<form>
+    <div class="form-group">
+        <label for="ejemploInputEmail">Email</label>
+        <input type="email" class="form-control" id="ejemploInputEmail" placeholder="Email" ng-model="contacto.email">
+    </div>
+    <div class="form-group">
+        <label for="ejemploInputPassword">Password</label>
+        <input type="password" class="form-control" id="ejemploInputPassword" placeholder="Contraseña" ng-model="contacto.password">
+    </div>
+    <div class="form-group">
+        <label for="ejemploInputComentario">Comentario</label>
+        <input type="text" class="form-control" id="ejemploInputComentario" placeholder="Comentario" ng-model="contacto.comentario">
+    </div>
+    <div class="checkbox">
+        <label>
+        	<input type="checkbox" ng-model="contacto.isCheck"> Checkbox!
+        </label>
+    </div>
+    <button type="submit" class="btn btn-default" ng-click="guardarContacto(contacto)">Submit</button>
+</form>

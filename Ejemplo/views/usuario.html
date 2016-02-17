@@ -1,0 +1,24 @@
+<div class="jumbotron text-center">  
+  <h1>Usuario</h1> 
+  <p>{{message}}</p>
+
+  <p>El usuario cargo los siguientes datos:</p>
+  <div ng-show="contacto">
+	  <p>Email: {{contacto.email}}</p>
+	  <p>Password: {{contacto.password}}</p>
+	  <p>Comentario: {{contacto.comentario}}</p>
+	  <p>Checkbox: {{contacto.isCheck}}</p>
+
+    <div class="form-group">
+      <label>Cambiamos el comentario</label>
+      <input type="text" class="form-control" ng-model="contacto.comentario">
+    </div>
+    <div class="form-group">
+      <label>Cambiamos el check</label>
+      <input type="checkbox" ng-model="contacto.isCheck"> Checkbox!
+    </div>
+  </div>
+  <div ng-show="!contacto">
+  	<p>Por favor, cargue datos</p>
+  </div>
+</div>

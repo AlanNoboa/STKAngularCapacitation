@@ -1,0 +1,38 @@
+<!--Se puede levantar con un task runner sino con algun complemento del browser
+  Por ejemplo, para Chrome el "web server"-->
+  
+<!-- index.html -->  
+<html ng-app='ejemploAngular'>  
+<head>  
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>  
+<body ng-controller='mainController'>  
+  <header>
+    <h1>Capacitacion Angular</h1>
+      <nav> 
+        <ul> 
+          <li><a href="#/">Inicio</a></li>
+          <li><a href="#usuario">Usuario</a></li>
+          <li><a href="#contacto">Contacto</a></li></ul> 
+      </nav>
+    </header>
+
+    <!-- Aca inyectamos las vistas -->
+    <div ng-view></div> 
+
+
+
+    <!--Hacemos el import de los JS de angular-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
+
+    <!--Importamos el archivo que tiene la configuracion de los route del ejemplo-->
+    <script src="main.js"></script>
+
+    <!--Todos los JS que esten en archivos externos tienen que importarse (Controllers,services,directivas, etc)-->
+    <script src="controllers/contactoController.js"></script>
+    <script src="controllers/usuarioController.js"></script>
+    <script src="services/usuarioService.js"></script>
+</body>
+</html>
