@@ -18,6 +18,14 @@ ejemploSofttek.config(function($stateProvider, $urlRouterProvider) {
             title: 'Home'
           }
         })
+        .state('home2', {
+          url: "",
+          templateUrl: "/views/home.html",
+          controller : 'mainController',
+          data: {
+            title: 'Home'
+          }
+        })
         .state('usuario', {
           url: "/usuario",
           templateUrl: "/views/usuario.html",
