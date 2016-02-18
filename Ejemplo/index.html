@@ -11,21 +11,19 @@
     <h1>Capacitacion Angular</h1>
       <nav> 
         <ul> 
-          <li><a href="#/">Inicio</a></li>
-          <li><a href="#usuario">Usuario</a></li>
-          <li><a href="#contacto">Contacto</a></li></ul> 
+          <li><a ng-click="redirectToHome()">Inicio</a></li>
+          <li><a ng-click="redirectToUsuario()">Usuario</a></li>
+          <li><a ng-click="redirectToContacto()">Contacto</a></li></ul> 
       </nav>
     </header>
 
     <!-- Aca inyectamos las vistas -->
-    <div ng-view></div> 
-
-
+    <div ui-view></div> 
 
     <!--Hacemos el import de los JS de angular-->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
+    <script src="deps/angular-ui-router.min.js"></script>
 
     <!--Importamos el archivo que tiene la configuracion de los route del ejemplo-->
     <script src="main.js"></script>

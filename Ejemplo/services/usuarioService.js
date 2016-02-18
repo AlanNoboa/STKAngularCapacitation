@@ -15,8 +15,11 @@ function UsuarioService($localStorage){
 	}
 
 	function get(){
-		alert('Obtuve el contacto');
-		var usuario = $localStorage.usuario 
+		var usuario = null;
+		if($localStorage.usuario){
+			alert('Obtuve el contacto');
+			usuario = $localStorage.usuario;
+		}
 		return usuario; 
 	}
 

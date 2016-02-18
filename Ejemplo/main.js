@@ -1,33 +1,63 @@
 // Creación del modulo
-var ejemploSofttek = angular.module('ejemploAngular', ['ngRoute','ngStorage']);
+var ejemploSofttek = angular.module('ejemploAngular', ['ui.router','ngStorage']);
 
 // Configuracion de las rutas
-ejemploSofttek.config(function($routeProvider) {
+ejemploSofttek.config(function($stateProvider, $urlRouterProvider) {
+    
+    // Para las URL que no esten ruteadas.
+    $urlRouterProvider.otherwise("/errorPage");
+    
+    // Ahora configuramos los states.
 
-    $routeProvider
-        .when('/', {
-            templateUrl : '/views/home.html',
-            controller  : 'mainController'
+      $stateProvider
+        .state('home', {
+          url: "/",
+          templateUrl: "/views/home.html",
+          controller : 'mainController',
+          data: {
+            title: 'Home'
+          }
         })
-        .when('/usuario', {
-            templateUrl : '/views/usuario.html',
-            controller  : 'usuarioController'
+        .state('usuario', {
+          url: "/usuario",
+          templateUrl: "/views/usuario.html",
+          controller : 'usuarioController',
+          data: {
+            title: 'Usuario'
+          }
         })
-        .when('/contacto', {
-            templateUrl : '/views/contacto.html',
-            controller  : 'contactoController'
+        .state('contacto', {
+          url: "/contacto",
+          templateUrl: "/views/contacto.html",
+          controller : 'contactoController',
+          data: {
+            title: 'Contacto'
+          }
         })
-        .when('/errorPage', {
-            templateUrl : '/views/error.html'
-        })
-        .otherwise({
-            redirectTo: '/errorPage'
+        .state('error', {
+          url: "/errorPage",
+          templateUrl: "views/error.html",
+          data: {
+            title: 'Error'
+          }
         });
 });
 
 // Configuracion de controllers
-ejemploSofttek.controller('mainController', function($scope) {
+ejemploSofttek.controller('mainController', function($scope, $state) {
     $scope.message = 'Hola, Mundo!';
+
+    $scope.redirectToUsuario = function(){
+        $state.go('usuario');
+    }
+
+    $scope.redirectToContacto = function(){
+        $state.go('contacto');
+    }
+
+    $scope.redirectToHome = function(){
+        $state.go('home');
+    }
 });
 
 ejemploSofttek.run();
