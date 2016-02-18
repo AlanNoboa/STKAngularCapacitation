@@ -10,23 +10,23 @@ ejemploSofttek.config(function($stateProvider, $urlRouterProvider) {
     // Ahora configuramos los states.
 
       $stateProvider
-        .state('home', {
-          url: "/",
-          templateUrl: "/views/home.html",
-          controller : 'mainController',
-          data: {
-            title: 'Home'
-          }
-        })
-        .state('home2', {
+        .state('app', {
           url: "",
+          templateUrl: "/views/main.html",
+          data: {
+            title: 'Home'
+          },
+          abstract:true
+        })
+        .state('app.home', {
+          url: "/home",
           templateUrl: "/views/home.html",
           controller : 'mainController',
           data: {
             title: 'Home'
           }
         })
-        .state('usuario', {
+        .state('app.usuario', {
           url: "/usuario",
           templateUrl: "/views/usuario.html",
           controller : 'usuarioController',
@@ -34,7 +34,7 @@ ejemploSofttek.config(function($stateProvider, $urlRouterProvider) {
             title: 'Usuario'
           }
         })
-        .state('contacto', {
+        .state('app.contacto', {
           url: "/contacto",
           templateUrl: "/views/contacto.html",
           controller : 'contactoController',
@@ -49,6 +49,7 @@ ejemploSofttek.config(function($stateProvider, $urlRouterProvider) {
             title: 'Error'
           }
         });
+
 });
 
 // Configuracion de controllers
@@ -56,15 +57,15 @@ ejemploSofttek.controller('mainController', function($scope, $state) {
     $scope.message = 'Hola, Mundo!';
 
     $scope.redirectToUsuario = function(){
-        $state.go('usuario');
+        $state.go('app.usuario');
     }
 
     $scope.redirectToContacto = function(){
-        $state.go('contacto');
+        $state.go('app.contacto');
     }
 
     $scope.redirectToHome = function(){
-        $state.go('home');
+        $state.go('app.home');
     }
 });
 
