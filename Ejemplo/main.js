@@ -3,15 +3,16 @@ var ejemploSofttek = angular.module('ejemploAngular', ['ui.router','ngStorage'])
 
 // Configuracion de las rutas
 ejemploSofttek.config(function($stateProvider, $urlRouterProvider) {
-    
+
     // Para las URL que no esten ruteadas.
     $urlRouterProvider.otherwise("/errorPage");
-    
+
     // Ahora configuramos los states.
 
       $stateProvider
         .state('app', {
           url: "",
+          controller : 'mainController',
           templateUrl: "/views/main.html",
           data: {
             title: 'Home'
@@ -21,7 +22,7 @@ ejemploSofttek.config(function($stateProvider, $urlRouterProvider) {
         .state('app.home', {
           url: "/home",
           templateUrl: "/views/home.html",
-          controller : 'mainController',
+          controller : 'homeController',
           data: {
             title: 'Home'
           }
@@ -53,6 +54,12 @@ ejemploSofttek.config(function($stateProvider, $urlRouterProvider) {
 });
 
 // Configuracion de controllers
+ejemploSofttek.controller('homeController', function($scope, $state) {
+    $scope.message = 'Hola, Mundo!';
+
+});
+
+// Configuracion de controllers
 ejemploSofttek.controller('mainController', function($scope, $state) {
     $scope.message = 'Hola, Mundo!';
 
@@ -68,5 +75,6 @@ ejemploSofttek.controller('mainController', function($scope, $state) {
         $state.go('app.home');
     }
 });
+
 
 ejemploSofttek.run();
